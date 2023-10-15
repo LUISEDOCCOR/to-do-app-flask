@@ -23,12 +23,12 @@ def addUser():
             'mode':'danger'
         })
         
-@app.route('/login')
+@app.route('/login',methods=['POST'])
 def login ():
     name = request.json["name"]
     password = request.json["password"]
     if db.existsUser(name):
-        if db.verifyPassword(password):
+        if db.verifyPassword(name, password):
             user = db.viewUser(name)
             return jsonify({
                 'msg':'Welcome back!',

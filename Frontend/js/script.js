@@ -54,12 +54,14 @@ const clearData = () => {
 
 //llamamos a funciones externas
 import { apiSingUp } from "./assets/singup.js";
+import {apiLogin} from "./assets/login.js"
 
 
 //cuando de requiera de de click en uno verificar que los campos no esten vacios
 login.addEventListener("click", () => {
   if (verify("user")) {
-    console.log("pass");
+    apiLogin(userName.value, password.value, alert)
+    clearData()
   }
 });
 signup.addEventListener("click", () => {
