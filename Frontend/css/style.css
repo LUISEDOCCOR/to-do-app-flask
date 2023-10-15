@@ -1,0 +1,60 @@
+*{
+    font-family: monospace;
+}
+header{
+    background-color: #555;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    font-size: 20px;
+}
+main{
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    height: 85vh;
+}
+#loginSignup{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    height: 15vh;
+}
+#add-to-do{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 20vw;
+}
+#btnAdd, #loginSignup button{
+    width: 125px;
+    border: none;
+    height: 40px;
+    background-color: #555;
+    color: #fff;
+    transition: .5s;
+    border-radius: 10px;
+}
+#btnAdd:hover{
+    background-color: #777;
+}
+#loginSignup button:hover{
+    background-color: #777;
+}
+#view-to-do{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 90vw;
+}
