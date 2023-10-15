@@ -34,5 +34,10 @@ def verifyPassword(name, password):
 def addUser (name, password):
     cursor.execute('INSERT INTO users (name, password) VALUES (%s, %s)', (name, password))
     conn.commit()
-    
+
+
+def viewUser (name):
+    cursor.execute('SELECT * FROM users WHERE name = %s', (name,))       
+    user = cursor.fetchall()
+    return user
 

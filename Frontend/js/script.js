@@ -8,6 +8,10 @@ const title = document.querySelector("#title");
 const activity = document.querySelector("#activity");
 const btnAdd = document.querySelector("#btnAdd");
 const divToDo = document.querySelector("#view-to-do");
+const h2UserName = document.querySelector("#h2UserName");
+const containerForm = document.querySelector('#loginSignup')
+
+
 
 //crear alerta
 const alert = (msg, mode) => {
@@ -49,7 +53,8 @@ const clearData = () => {
 };
 
 //llamamos a funciones externas
-import { apiSingUp } from "./assets/login.js";
+import { apiSingUp } from "./assets/singup.js";
+
 
 //cuando de requiera de de click en uno verificar que los campos no esten vacios
 login.addEventListener("click", () => {
@@ -68,3 +73,15 @@ btnAdd.addEventListener("click", () => {
     console.log("pass");
   }
 });
+
+
+const verifyLocalUser  = ()=>{
+  if(localStorage.getItem('user')){
+    const user = JSON.parse(localStorage.getItem('user'));
+    containerForm.classList.add('d-none')
+    h2UserName.innerHTML = user.name
+
+  }   
+}
+
+verifyLocalUser()
