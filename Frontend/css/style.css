@@ -59,3 +59,15 @@ main{
     gap: 50px;
     width: 90vw;
 }
+@media screen and (max-width: 500px) {
+    #loginSignup{
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    #add-to-do{
+        width: 90vw;
+    }
+    #view-to-do{
+        justify-content: center;
+    }
+}
