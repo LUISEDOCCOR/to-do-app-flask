@@ -7,7 +7,6 @@ const signup = document.querySelector("#signup");
 const title = document.querySelector("#title");
 const activity = document.querySelector("#activity");
 const btnAdd = document.querySelector("#btnAdd");
-const divToDo = document.querySelector("#view-to-do");
 const h2UserName = document.querySelector("#h2UserName");
 const containerForm = document.querySelector('#loginSignup')
 
@@ -39,8 +38,6 @@ const verify = (mode) => {
       return false;
     } else {
       divAlert.innerHTML = "";
-      title.value = "";
-      activity.value = "";
       return true;
     }
   }
@@ -55,6 +52,7 @@ const clearData = () => {
 //llamamos a funciones externas
 import { apiSingUp } from "./assets/singup.js";
 import {apiLogin} from "./assets/login.js"
+import { addToDo} from "./assets/todos.js";
 
 
 //cuando de requiera de de click en uno verificar que los campos no esten vacios
@@ -72,7 +70,9 @@ signup.addEventListener("click", () => {
 });
 btnAdd.addEventListener("click", () => {
   if (verify("toDo")) {
-    console.log("pass");
+    addToDo(title.value, activity.value)
+    title.value = "";
+    activity.value = "";
   }
 });
 
@@ -82,6 +82,9 @@ const verifyLocalUser  = ()=>{
     const user = JSON.parse(localStorage.getItem('user'));
     containerForm.classList.add('d-none')
     h2UserName.innerHTML = user.name
+  }else{
+    containerForm.classList.remove('d-none');
+    h2UserName.innerHTML = ''
 
   }   
 }
