@@ -1,3 +1,4 @@
+import {apiAddToDo, apiViewToDo, apiDeleteToDo} from './todosAPI.js';
 const divToDo = document.querySelector("#view-to-do");
 const getkey = ()=>{
     var index = localStorage.length 
@@ -33,6 +34,8 @@ const openRenderCadrs = () =>{
                 renderCards(toDo.title, toDo.activity, key)
             }
         }
+    }else{
+        apiViewToDo(renderCards)
     }
 }
 const addToDo = (title, activity, alert)=>{
@@ -47,6 +50,8 @@ const addToDo = (title, activity, alert)=>{
         localStorage.setItem(key, JSON.stringify(toDO))
         renderCards(title, activity, key)
         
+    }else{
+        apiAddToDo(title, activity, renderCards)
     }
 }
 openRenderCadrs()
@@ -56,6 +61,9 @@ divToDo.addEventListener('click', (e)=>{
         e.preventDefault();
         const key = e.target.getAttribute('data-key');
         completeRemove(key);
+        if(localStorage.getItem('user')){
+            apiDeleteToDo(key)
+        }
     }
 })
 

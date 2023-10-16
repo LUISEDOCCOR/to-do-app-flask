@@ -49,3 +49,7 @@ def viewToDo(user_id):
     cursor.execute('SELECT * FROM todos WHERE user_id = %s', (user_id,))
     todos = cursor.fetchall()
     return todos
+
+def deleteToDo(todo_id):
+    cursor.execute('DELETE FROM todos WHERE id = %s', (todo_id,))
+    conn.commit()

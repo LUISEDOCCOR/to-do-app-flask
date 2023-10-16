@@ -66,9 +66,17 @@ def addToDo ():
     user_id = request.json["user_id"]
     db.addToDo(title, activity, user_id)
     return jsonify({
-        'msg': 'ture'
+        'mode': 'success',
+        'msg': 'has been added correctly'
     })
-        
+      
+@app.route('/delete', methods=["DELETE"])
+def delete():
+    todo_id = request.json['todo_id']
+    db.deleteToDo(todo_id)    
+    return jsonify({
+        'mode': 'success'
+    })    
     
     
 
