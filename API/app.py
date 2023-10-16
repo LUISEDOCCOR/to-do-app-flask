@@ -46,7 +46,30 @@ def login ():
             'mode': 'danger'
         })
     
+@app.route('/viewtodos', methods = ["POST"])
+def viewToDo():
+    user_id = request.json["user_id"]
+    data = db.viewToDo(user_id)
+    toDos = []
+    for todo in data:
+        toDos.append({
+            'id': todo[0],
+            'title': todo[1],
+            'activity': todo[2],
+        })
+    return jsonify(toDos)    
 
+@app.route('/addToDo', methods = ["POST"])
+def addToDo ():
+    title = request.json["title"]
+    activity = request.json["activity"]
+    user_id = request.json["user_id"]
+    db.addToDo(title, activity, user_id)
+    return jsonify({
+        'msg': 'ture'
+    })
+        
+    
     
 
 if __name__ == '__main__':

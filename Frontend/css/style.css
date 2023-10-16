@@ -19,6 +19,7 @@ main{
     flex-direction: column;
     gap: 30px;
     height: 85vh;
+    margin-bottom: 5vh;
 }
 #loginSignup{
     display: flex;
