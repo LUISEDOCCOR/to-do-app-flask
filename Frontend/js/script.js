@@ -55,6 +55,7 @@ import {apiLogin} from "./assets/login.js"
 import { addToDo} from "./assets/todos.js";
 
 
+
 //cuando de requiera de de click en uno verificar que los campos no esten vacios
 login.addEventListener("click", () => {
   if (verify("user")) {
@@ -85,7 +86,6 @@ const verifyLocalUser  = ()=>{
   }else{
     containerForm.classList.remove('d-none');
     h2UserName.innerHTML = ''
-
   }   
 }
 

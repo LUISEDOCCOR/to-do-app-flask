@@ -1,4 +1,3 @@
-const divToDo = document.querySelector("#view-to-do");
 const apiViewToDo = (renderCard)=>{
     const localUser = JSON.parse(localStorage.getItem('user'))
     fetch('http://127.0.0.1:4000/viewtodos', {
@@ -33,8 +32,7 @@ const apiAddToDo = (title, activity, renderCard)=>{
         },
         body: JSON.stringify(toDo)
     })
-    renderCard(title, activity, localUser.id)
-    
+    apiViewToDo(renderCard)
 }
 
 const apiDeleteToDo = (id) =>{
